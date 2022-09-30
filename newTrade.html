@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Scent Swap</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/newTrade.css">
+    </head>
+    <body>
+        <header class="web-header">
+            <div class="outer-boundry">
+                <div class="inner-boundry">
+                    <div class="elm">
+                        <a href="index.html"><img src="images/logo.jpeg" alt="logo"></a>
+                    </div>
+                    <div class="elm">
+                        <h1>Scent Swap</h1>
+                        <p>Relax! Exchange! Reuse!</p>
+                    </div>
+                    
+                </div>
+                
+                <nav class="primary-nav">
+                    <ul>
+                        <li><a href="newTrade.html">Start Trading!</a></li>
+                        <li><a>Login</a></li>
+                        <li><a>Sign up</a></li>
+                    </ul>
+                </nav>  
+            </div>
+        </header>
+        <nav class="secondary-nav">
+            <ul>
+                <li><a href="trades.html">Trades</a></li>
+            </ul>
+        </nav>  
+        <main class="content">
+            <div class="form_div">
+                <form class="form_main" action="trades.html">
+                    <div class="form_main">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <div class="form_main">
+                        <label for="category">Category</label>
+                         <input type="text" id="category" name="category" required>
+                    </div>
+                    <div class="form_main">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" required><br>
+                    </div>
+                    <div class="form_main">
+                        <label>Type</label>
+                        <input type="radio" name="radio" required>3 Wick
+                        <input type="radio" name="radio" required>2 Wick
+                        <input type="radio" name="radio" required>1 Wick
+                    </div>
+                    <div class="form_main">
+                        <label for="original_net_weight">Original Net Weight(Oz)</label>
+                        <input type="text" id="original_net_weight" name="original_net_weight" required>
+                    </div>
+                    <div class="form_main">
+                        <label for="existing_net_weight">Existing Net Weight(Oz)</label>
+                        <input type="text" id="existing_net_weight" name="existing_net_weight" required>
+                    </div>
+                   <div class="form_main">
+                        <label for="original_price">Original price(USD)</label>
+                        <input type="text" id="original_price" name="original_price" required><br>
+                   </div>
+                   <div class="form_main">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" required></textarea>
+                    </div>
+                    <div class="form_main form_submit">
+                        <input type="submit" value="Create trade">
+                   </div>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>&copy; Scent Swap</p>
+        </footer>
+    </body>
+</html>

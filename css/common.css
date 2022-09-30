@@ -1,0 +1,94 @@
+html, body, h1, h2, h3, ul, li, a, p, aside, header, main, nav, section, article, footer {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    height: 85%;
+}
+
+body{
+    width: 95%;
+    height: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#ffffff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+li a {
+    color: black;
+}
+
+li {
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.web-header{
+    background-color: seashell;
+    padding: 5px 10px;
+    
+}
+
+.outer-boundry{
+    display: flex;
+}
+
+.inner-boundry{
+    display: flex;
+}
+.inner-boundry img{
+    width: 100px;
+}
+.elm {
+    padding: 10px 20px;
+}
+
+.primary-nav{
+    margin-left: auto;
+}
+
+.secondary-nav{
+    padding: 5px;
+    margin-top: 2px;
+    background-color:#ffeef0;
+}
+
+.content {
+    background-color: #f7f6f6;
+    height: 100%;
+    padding: 5px;
+    margin-top: 2px;
+}
+section {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+article {
+    margin-top: 5px;
+    padding: 10px 15px;
+}
+
+.main-text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.footer{
+    display: flex;
+    background-color: seashell;
+    padding: 5px 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+}
+
+.footer p {
+    display: inline-block;
+    font-size: 18px;
+}

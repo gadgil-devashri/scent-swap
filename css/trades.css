@@ -1,0 +1,34 @@
+html{
+    height: 110%;
+}
+body{
+    height: 110%;
+}
+.content-section {
+    margin: 20px;
+}
+
+.trade-ul {
+    list-style-type: none;
+    
+}
+
+.trade-li{
+    margin: 10px;
+}
+
+.trade-li img {
+    float: left;
+    margin: 0 15px 0 0;
+  }
+
+.trade-li li {
+    padding: 10px;
+    overflow: auto;
+
+}
+
+.trade-li li:hover {
+    background: #eee;
+    cursor: pointer;
+  }
