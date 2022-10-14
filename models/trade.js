@@ -96,3 +96,14 @@ exports.save = function(trade){
     trade.status = 'available';
     trades.push(trade);
 }
+
+exports.delete = function(id){
+    let trade_id = trades.findIndex(trade => trade.id === id);
+    if(trade_id != -1){
+        trades.splice(trade_id,1)
+        return true
+    }
+    else{
+        return false
+    }
+}

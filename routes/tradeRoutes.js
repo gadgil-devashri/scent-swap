@@ -14,4 +14,7 @@ router.get('/:id', controller.show);
 // POST new trade details
 router.post('/', controller.create);
 
+// DELETE a trade
+router.delete('/:id', controller.delete);
+
 module.exports = router;
