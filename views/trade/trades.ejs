@@ -4,22 +4,29 @@
 
 <main class="content">
     <section class="content-section">
-        <h2>Woody scent</h2>
-        <article>
-            <%if(trades.length){%>
-            <ul class="trade-ul">
-                <%trades.forEach(trade => {%>
-                <li class="trade-li">
-                    <img src="<%= trade.image %>" width="100" height="100" alt="product image">
-                    <a href="trades/<%= trade.id %>"><h3><%= trade.title %></h3></a>
-                    <p><%= trade.details %></p>
-                </li>
-            <%})%>
-            </ul>
-        <%}else {%>
+        <%if(trades_dict){
+            for(category in trades_dict){%>
+                <h2><%=category%></h2>
+                <article>
+                    <%if(trades_dict[category].length){%>
+                        <ul class="trade-ul"></ul>
+                        <%trades_dict[category].forEach(trade => {%>
+                            <li class="trade-li">
+                                <img src="<%= trade.image %>" width="100" height="100" alt="product image">
+                                <a href="/trades/<%= trade.id %>"><h3><%= trade.title %></h3></a>
+                                <p><%= trade.details %></p>
+                            </li>
+                        <%})
+                    }
+                    else{%>
+                        <p>Sorry! No candles available</p>
+                    <%}%>
+                </article>
+            <%}
+        }
+        else{%>
             <p>Sorry! No candles available</p>
         <%}%>
-        </article> 
     </section>
 </main>
 

@@ -2,7 +2,18 @@ const model = require('../models/trade');
 
 exports.index = function(req,res){
     trades = model.find();
-    res.render('trade/trades', {trades:trades});
+    trades_dict = {};
+    trades.forEach(trade =>{
+        if(trade.category in trades_dict){
+            trades_dict[trade.category].push(trade);
+        }
+        else{
+            trades_dict[trade.category] = [];
+            trades_dict[trade.category].push(trade);
+        }
+
+    })
+    res.render('trade/trades', {trades_dict:trades_dict});
 
 };
 
