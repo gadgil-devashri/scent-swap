@@ -1,5 +1,8 @@
+const model = require('../models/trade');
+
 exports.index = function(req,res){
-    res.render('trade/trades');
+    trades = model.find();
+    res.render('trade/trades', {trades:trades});
 
 };
 
@@ -8,5 +11,6 @@ exports.new = function(req,res){
 }
 
 exports.show = function(req,res){
+    trade = model.findById();
     res.render('trade/trade');
 };
