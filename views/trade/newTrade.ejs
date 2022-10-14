@@ -3,7 +3,7 @@
 <%- include('../partials/nav.ejs')%>
         <main class="content">
             <div class="form_div">
-                <form class="form_main" action="trades.html">
+                <form class="form_main" action="/trades" method = 'POST'>
                     <div class="form_main">
                         <label for="title">Title</label>
                         <input type="text" id="title" name="title" required>
@@ -17,10 +17,14 @@
                         <input type="text" id="company" name="company" required><br>
                     </div>
                     <div class="form_main">
+                        <label for="image">Image</label>
+                         <input type="url" id="image" name="image" required>
+                    </div>
+                    <div class="form_main">
                         <label>Type</label>
-                        <input type="radio" name="radio" required>3 Wick
-                        <input type="radio" name="radio" required>2 Wick
-                        <input type="radio" name="radio" required>1 Wick
+                        <input type="radio" name="type" value="3 wick" required>3 Wick
+                        <input type="radio" name="type" value="2 wick" required>2 Wick
+                        <input type="radio" name="type" value="1 wick" required>1 Wick
                     </div>
                     <div class="form_main">
                         <label for="original_net_weight">Original Net Weight(Oz)</label>
@@ -35,8 +39,8 @@
                         <input type="text" id="original_price" name="original_price" required><br>
                    </div>
                    <div class="form_main">
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" required></textarea>
+                        <label for="details">Description</label>
+                        <textarea id="details" name="details" required></textarea>
                     </div>
                     <div class="form_main form_submit">
                         <input type="submit" value="Create trade">

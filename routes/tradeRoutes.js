@@ -11,4 +11,7 @@ router.get('/new', controller.new)
 // GET details of particulatar trade
 router.get('/:id', controller.show);
 
+// POST new trade details
+router.post('/', controller.create);
+
 module.exports = router;

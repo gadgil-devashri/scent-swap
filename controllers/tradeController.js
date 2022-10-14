@@ -25,3 +25,9 @@ exports.show = function(req,res){
     trade = model.findById(req.params.id);
     res.render('trade/trade', {trade:trade});
 };
+
+exports.create = function(req,res){
+    trade = req.body;
+    model.save(trade);
+    res.redirect('/trades');
+}

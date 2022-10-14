@@ -89,4 +89,10 @@ exports.find = function(){
 
 exports.findById = function(id){
     return trades.find(trade => trade.id === id);
+};
+
+exports.save = function(trade){
+    trade.id = uuidv4();
+    trade.status = 'available';
+    trades.push(trade);
 }
