@@ -4,27 +4,30 @@
         <main class="content">
            <div class="main-block">
             <div class="block">
-                <img class="product-img" src="/images/lavender.jpeg" alt="product image" width="400" height="400">
+                <% if(trade){ %>
+                <img class="product-img" src="<%=trade.image%>" alt="product image" width="400" height="400">
             </div>
             <div class="block">
-                <h2>Lavender</h2>
-                <h4>Floral Aroma</h4>
+                <h2><%=trade.title%></h2>
+                <h4><%=trade.category%></h4>
                 <p class="p-head"> Description:</p>
-                <p>
-                    Lavender has a delicate, sweet smell that is floral, herbal, and evergreen woodsy at the same time. It has soft, powdery, or smokey notes as well. 
-                    Lavender is one of the most popular scents for relaxing and falling asleep. It can help release tension, soothe racing thoughts and help you unwind.
-                </p>
+                <p><%=trade.details%></p>
                 <p class="p-head">Company:</p>
-                <p>White Barn</p>
+                <p><%=trade.company%></p>
                 <p class="p-head">Type:</p>
-                <p>3 wick</p>
+                <p><%=trade.type%></p>
                 <p class="p-head">Original Net Weight:</p>
-                <p>14.5oz / 411gm</p>
+                <p><%=trade.original_net_weight%>Oz</p>
                 <p class="p-head">Existing Net Weight:</p>
-                <p>6oz / 170gm</p>
+                <p><%=trade.existing_net_weight%>Oz</p>
                 <p class="p-head">Original Price:</p>
-                <p>$26.50</p>
+                <p>$<%=trade.original_price%></p>
+                <p class="p-head">Status:</p>
+                <p><%=trade.status%></p>
             </div>
+        <%} else{%>
+            <p>No details found</p>
+        <%}%>
            </div>
         </main>
 <%- include('../partials/footer.ejs')%>

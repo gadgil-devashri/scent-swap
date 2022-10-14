@@ -4,7 +4,7 @@
 
 <main class="content">
     <section class="content-section">
-        <%if(trades_dict){
+        <%if(Object.keys(trades_dict).length){
             for(category in trades_dict){%>
                 <h2><%=category%></h2>
                 <article>

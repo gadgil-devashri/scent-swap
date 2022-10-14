@@ -22,6 +22,6 @@ exports.new = function(req,res){
 }
 
 exports.show = function(req,res){
-    trade = model.findById();
-    res.render('trade/trade');
+    trade = model.findById(req.params.id);
+    res.render('trade/trade', {trade:trade});
 };

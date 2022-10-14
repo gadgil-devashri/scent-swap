@@ -13,7 +13,7 @@ const trades = [
     original_price:"6.50",
     status:"available",
     image:"/images/sandalwood.jpeg",
-    details:"In aromatherapy, sandalwood has many benefits. Its sweet, soft scent induces relaxation and calmness, and promotes positive thinking, clarity and aids concentration. Many people believe it can also help boost memory. Often sandalwood is associated as a 'masculine' smell but it's actually used in loads in 'feminine' marketed fragrances out there."
+    details:"In aromatherapy, sandalwood has many benefits. Its sweet, soft scent relaxes human body, and promotes positive thinking, clarity and aids concentration. Many people believe it can also help boost memory. Often sandalwood is associated as a 'masculine' smell but it's actually used in loads in 'feminine' marketed fragrances out there."
 },
 {
     id:"2",
