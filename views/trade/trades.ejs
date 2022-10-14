@@ -1,53 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Scent Swap</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/trades.css">
-    </head>
-    <body>
-        <header class="web-header">
-            <div class="outer-boundry">
-                <div class="inner-boundry">
-                    <div class="elm">
-                        <a href="index.html"><img src="images/logo.jpeg" alt="logo"></a>
-                    </div>
-                    <div class="elm">
-                        <h1>Scent Swap</h1>
-                        <p>Relax! Exchange! Reuse!</p>
-                    </div>   
-                </div>
-                <nav class="primary-nav">
-                    <ul>
-                        <li><a href="newTrade.html">Start Trading!</a></li>
-                        <li><a>Login</a></li>
-                        <li><a>Sign up</a></li>
-                    </ul>
-                </nav>  
-            </div>
-        </header>
-        <nav class="secondary-nav">
-            <ul>
-                <li><a href="trades.html">Trades</a></li>
-            </ul>
-        </nav>  
+<%- include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/css/trades.css">
+<%- include('../partials/nav.ejs')%> 
         <main class="content">
             <section class="content-section">
                 <h2>Woody scent</h2>
                 <article>
                     <ul class="trade-ul">
                         <li class="trade-li">
-                            <img src="images/sandalwood.jpeg" width="100" height="100" alt="product image">
+                            <img src="/images/sandalwood.jpeg" width="100" height="100" alt="product image">
                             <a href="trade.html"><h3>Sandalwood</h3></a>
                             <p>In aromatherapy, sandalwood has many benefits. Its sweet, soft scent induces relaxation and calmness, and promotes positive thinking, clarity and aids concentration. Many people believe it can also help boost memory. 
                                 Often sandalwood is associated as a 'masculine' smell but it's actually used in loads in 'feminine' marketed fragrances out there.</p>
                         </li>
                         <li class="trade-li">
-                            <img src="images/pine.jpeg" width="100" height="100" alt="product image">
+                            <img src="/images/pine.jpeg" width="100" height="100" alt="product image">
                             <a href="trade.html"><h3>Pine</h3></a>
                             <p>
                                 Pine tree aroma has sharp, sweet, and refreshing notes. Lit a candle and the enjoy smell of pine trees: pine needles, bark and cones - just like a walk through a pine forest.
@@ -55,7 +21,7 @@
                             </p>
                         </li>
                         <li class="trade-li">
-                            <img src="images/juniper.png" width="100" height="100" alt="product image">
+                            <img src="/images/juniper.png" width="100" height="100" alt="product image">
                             <a href="trade.html"><h3>Juniper</h3></a>
                             <p>
                                 It has distinctive aroma that is woody, sweet, fresh and crisp. Get a juniper scented candle for the holiday season, your house will smell amazing for weeks.
@@ -70,7 +36,7 @@
                 <article>
                     <ul class="trade-ul">
                         <li class="trade-li">
-                            <img src="images/rose.jpeg" width="100" height="100" alt="product image">
+                            <img src="/images/rose.jpeg" width="100" height="100" alt="product image">
                             <a href="trade.html"><h3>Rose</h3></a>
                             <p>
                                 A candle that relieves stress, fights anxiety, and relaxes your body and mind. 
@@ -79,7 +45,7 @@
                             </p>
                         </li>
                         <li class="trade-li">
-                            <img src="images/lavender.jpeg" width="100" height="100" alt="product image">
+                            <img src="/images/lavender.jpeg" width="100" height="100" alt="product image">
                             <a href="trade.html"><h3>Lavender</h3></a>
                             <p>
                                 Lavender has a delicate, sweet smell that is floral, herbal, and evergreen woodsy at the same time. It has soft, powdery, or smokey notes as well. 
@@ -87,7 +53,7 @@
                             </p>
                         </li>
                         <li class="trade-li">
-                            <img src="images/jasmine.jpeg" width="100" height="100" alt="product image">
+                            <img src="/images/jasmine.jpeg" width="100" height="100" alt="product image">
                             <a href="trade.html"><h3>Jasmine</h3></a>
                             <p>
                                 The floral scent of jasmine is rich, sweet, fruity, and sensual. Unlike other flowers, Jasmine also has a slight animalistic edge that smells tenacious and musky. 
@@ -98,8 +64,4 @@
                 </article> 
             </section>
         </main>
-        <footer class="footer">
-            <p>&copy; Scent Swap</p>
-        </footer>
-    </body>
-</html>
+<%- include('../partials/footer.ejs')%>

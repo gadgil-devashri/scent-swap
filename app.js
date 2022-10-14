@@ -1,5 +1,6 @@
 // Require 
 const express = require('express');
+const tradeRoute = require('./routes/tradeRoutes');
 
 // App creation
 const app = express();
@@ -17,7 +18,8 @@ app.use(express.urlencoded({extended:true}));
 app.get('/', (req,res) =>{
     // res.send("Homepage");
     res.render('index');
-})
+});
+app.use('/trades', tradeRoute)
 
 // Start the server 
 app.listen(port, host, ()=>{
