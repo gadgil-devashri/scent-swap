@@ -92,3 +92,8 @@ article {
     display: inline-block;
     font-size: 18px;
 }
+
+.footer a {
+    margin-left: 20px;
+    color: black;
+}

@@ -2,6 +2,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const tradeRoute = require('./routes/tradeRoutes');
+const mainRoute = require('./routes/mainRoutes');
 const methodOverride = require('method-override');
 
 // App creation
@@ -19,10 +20,11 @@ app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
 // Routes 
-app.get('/', (req,res) =>{
+/* app.get('/', (req,res) =>{
     // res.send("Homepage");
     res.render('index');
-});
+}); */
+app.use('/', mainRoute);
 app.use('/trades', tradeRoute);
 
 app.use((req,res,next)=>{
