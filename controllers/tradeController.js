@@ -74,7 +74,7 @@ exports.edit = function(req,res,next){
      // res.send("Story updation form with id: " +req.params.id);
      let trade = model.findById(req.params.id)
      if(trade){
-         res.render('trade/edit', {trade});
+         res.render('trade/editTrade', {trade});
      }
      else{
          //res.status(404).send("Can not find trade with id" +req.params.id);
