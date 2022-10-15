@@ -21,13 +21,16 @@ exports.new = function(req,res){
     res.render('trade/newTrade');
 }
 
-exports.show = function(req,res){
+exports.show = function(req,res,next){
     trade = model.findById(req.params.id);
     if(trade){
         res.render('trade/trade', {trade:trade});
     }
     else{
-        res.status(404).send("Can not find trade with id", req.params.id);
+        //res.status(404).send("Can not find trade with id", req.params.id);
+        let err = new Error("Can not find trade with id "+req.params.id);
+        err.status=404;
+        next(err);
     }
 };
 
@@ -37,18 +40,22 @@ exports.create = function(req,res){
     res.redirect('/trades');
 }
 
-exports.delete = function(req,res){
+exports.delete = function(req,res,next){
     let id = req.params.id;
     let result = model.delete(id);
     if(result){
         res.redirect('/trades');
     }
     else{
-        res.status(404).send("Can not find trade with id", id);
+        //res.status(404).send("Can not find trade with id", id);
+        let err = new Error("Can not find trade with id "+req.params.id);
+        err.status=404;
+        next(err);
+        
     }
 }
 
-exports.update = function(req,res){
+exports.update = function(req,res,next){
     let trade = req.body;
     let id = req.params.id;
     result = model.update(id, trade);
@@ -56,17 +63,23 @@ exports.update = function(req,res){
         res.redirect('/trades/'+id);
     }
     else{
-        res.status(404).send("Can not find trade with id" +req.params.id);
+        //res.status(404).send("Can not find trade with id" +req.params.id);
+        let err = new Error("Can not find trade with id "+req.params.id);
+        err.status=404;
+        next(err);
     }
 }
 
-exports.edit = function(req,res){
+exports.edit = function(req,res,next){
      // res.send("Story updation form with id: " +req.params.id);
      let trade = model.findById(req.params.id)
      if(trade){
          res.render('trade/edit', {trade});
      }
      else{
-         res.status(404).send("Can not find story with id" +req.params.id)
+         //res.status(404).send("Can not find trade with id" +req.params.id);
+        let err = new Error("Can not find trade with id "+req.params.id);
+        err.status=404;
+        next(err);
      }
 }

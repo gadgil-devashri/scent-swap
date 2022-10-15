@@ -23,7 +23,24 @@ app.get('/', (req,res) =>{
     // res.send("Homepage");
     res.render('index');
 });
-app.use('/trades', tradeRoute)
+app.use('/trades', tradeRoute);
+
+app.use((req,res,next)=>{
+    let err = new Error('The server can not locate: '+req.url);
+    err.status=404;
+    next(err);
+})
+app.use((err, req, res, next) =>{
+    console.log(err.stack);
+    if(!err.status){
+        err.status = 500;
+        err.message = ("Internal Server Error");
+    }
+
+    res.status(err.status);
+    res.render('error', {error: err});
+
+})
 
 // Start the server 
 app.listen(port, host, ()=>{
