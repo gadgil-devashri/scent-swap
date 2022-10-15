@@ -17,4 +17,10 @@ router.post('/', controller.create);
 // DELETE a trade
 router.delete('/:id', controller.delete);
 
+// Update existing trade
+router.put('/:id', controller.update);
+
+// Edit an existing trade
+router.get('/:id/edit', controller.edit)
+
 module.exports = router;

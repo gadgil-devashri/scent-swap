@@ -47,3 +47,26 @@ exports.delete = function(req,res){
         res.status(404).send("Can not find trade with id", id);
     }
 }
+
+exports.update = function(req,res){
+    let trade = req.body;
+    let id = req.params.id;
+    result = model.update(id, trade);
+    if(result){
+        res.redirect('/trades/'+id);
+    }
+    else{
+        res.status(404).send("Can not find trade with id" +req.params.id);
+    }
+}
+
+exports.edit = function(req,res){
+     // res.send("Story updation form with id: " +req.params.id);
+     let trade = model.findById(req.params.id)
+     if(trade){
+         res.render('trade/edit', {trade});
+     }
+     else{
+         res.status(404).send("Can not find story with id" +req.params.id)
+     }
+}

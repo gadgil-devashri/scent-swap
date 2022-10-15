@@ -107,3 +107,23 @@ exports.delete = function(id){
         return false
     }
 }
+
+exports.update = function(id, newTrade){
+    let trade = trades.find(trade => trade.id === id);
+    if(trade){
+        trade.title = newTrade.title;
+        trade.category = newTrade.category;
+        trade.company = newTrade.company;
+        trade.type = newTrade.type;
+        trade.original_net_weight = newTrade.original_net_weight;
+        trade.existing_net_weight = newTrade.existing_net_weight;
+        trade.original_price = newTrade.original_price;
+        trade.status = "available";
+        trade.image = newTrade.image;
+        trade.details = newTrade.details;
+        return true;
+    }
+    else{
+        return false;
+    }
+}
