@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const tradeRoute = require('./routes/tradeRoutes');
 const mainRoute = require('./routes/mainRoutes');
 const methodOverride = require('method-override');
+const mongoose = require('mongoose');
 
 // App creation
 const app = express();
@@ -12,6 +13,17 @@ const app = express();
 const host = 'localhost';
 const port = 3000;
 app.set('view engine', 'ejs');
+
+// Connect to DB
+mongoose.connect('mongodb://localhost:27017/scent-swap' ,{ useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => {
+    // Start the server 
+    app.listen(port, host, ()=>{
+        console.log("Sever is running on:", port);
+    })
+
+})
+.catch(err => console.log(err.message))
 
 // Middleware 
 app.use(express.static('public'));
@@ -44,7 +56,3 @@ app.use((err, req, res, next) =>{
 
 })
 
-// Start the server 
-app.listen(port, host, ()=>{
-    console.log("Sever is running on:", port);
-})
