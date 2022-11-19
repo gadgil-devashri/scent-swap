@@ -16,8 +16,10 @@
                 <nav class="primary-nav">
                     <ul>
                         <li><a href="/trades/new">Start Trading!</a></li>
-                        <li><a>Login</a></li>
-                        <li><a>Sign up</a></li>
+                        <li><a href="/users/profile">Profile</a></li>
+                        <li><a href="/users/login">Login</a></li>
+                        <li><a href="/users/new">Sign up</a></li>
+                        <li><a href="/users/logout">Logout</a></li>
                     </ul>
                 </nav>  
             </div>
@@ -27,3 +29,14 @@
                 <li><a href="/trades">Trades</a></li>
             </ul>
         </nav>
+        <% if(errorMessages.length > 0){
+            errorMessages.forEach(msg =>{%>
+                <div class="error"><%=msg%></div>
+            <%})
+        }%>
+    
+        <%if(successMessages.length > 0){
+            successMessages.forEach(msg =>{%>
+                <div class="success"><%=msg%></div>
+            <%})
+        }%>
