@@ -1,19 +1,26 @@
 <%- include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/css/user.css">
 <%- include('../partials/nav.ejs')%> 
-        <form action = '/users/login' method = 'POST'>
-            <table>
-                <tr>
-                    <td><label for="email">Email Address</label></td>
-                    <td><input type="email" id="email" name="email" class = "fixed-width" required></td>
-                </tr>
-                <tr>
-                    <td><label for="password">Password</label></td>
-                    <td><input type="password" id="password" name="password" class = "fixed-width" required></td>
-                </tr>
-                
-                <tr>
-                    <td colspan="2" class = "align-right"><button>Login</button></td>
-                </tr>
-            </table>        
-        </form>
+    <main class="content">
+
+        <div class="form_div">
+            <form class="form_main" action = '/users/login' method = 'POST'>
+                <table>
+                    <tr>
+                        <td><label for="email">Email Address</label></td>
+                        <td><input type="email" id="email" name="email" class = "fixed-width" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password</label></td>
+                        <td><input type="password" id="password" name="password" class = "fixed-width" required></td>
+                    </tr>
+                    
+                    <tr class="form_submit">
+                        <td colspan="2" class = "align-left"><button>Login</button></td>
+                    </tr>
+                </table>        
+            </form>
+        </div>
+
+    </main>
 <%- include('../partials/footer.ejs')%>

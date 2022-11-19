@@ -1,7 +1,9 @@
 <%- include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/css/user.css">
 <%- include('../partials/nav.ejs')%> 
-        <div class = "content">
-            <form action = '/users' method = 'POST'>
+    <main class="content">
+        <div class = "form_div">
+            <form class="form_main" action = '/users' method = 'POST'>
                 <table>
                     <tr>
                         <td><label for="firstName">First Name</label></td>
@@ -21,11 +23,14 @@
                         <td><input type="password" id="password" name="password" class = "fixed-width" minlength="8" required></td>
                     </tr>
                     
-                    <tr>
-                        <td colspan="2" class = "align-right"><button>Sign Up</button></td>
+                    <tr class="form_submit">
+                        <td colspan="2" class = "align-left"><button>Sign Up</button></td>
                     </tr>
                 </table>        
             </form>
         
-            </div>
+        </div>
+
+    </main>
+       
 <%- include('../partials/footer.ejs')%>
