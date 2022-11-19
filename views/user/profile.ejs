@@ -1,4 +1,37 @@
 <%- include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/css/profile.css">
 <%- include('../partials/nav.ejs')%> 
-<h2>Welcome <%=user.firstName%></h2>
+<main class="content">
+
+    <div class="head">
+        <h3><%=user.firstName%>'s trades:</h3>
+    </div>
+    <div class="table-main">
+
+        <%if(trades.length) { %>
+            <table>
+                <tr>
+                  <th>Trades</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+            <%trades.forEach(trade => {%>
+                <tr>
+                    <td> <a href="/trades/<%=trade.id%>"><p><%=trade.title%></p></a></td>
+                    <td><%=trade.category%></td>
+                    <td>
+                        <form class="form-btn">
+                            <button class="table-btn" type="submit" formmethod="GET" formaction="/trades/<%=trade.id%>/edit">Edit</button>
+                            <button class="table-btn" type="submit" formmethod="POST" formaction="/trades/<%=trade.id%>?_method=DELETE">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <%});%>
+            </table>
+        <%} else {%>
+            <p>You have not created any trades to display</p>
+        <%}%>
+
+    </div>
+</main>
 <%- include('../partials/footer.ejs')%>

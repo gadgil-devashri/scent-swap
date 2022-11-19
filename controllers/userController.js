@@ -1,5 +1,6 @@
 const model = require('../models/user');
 const flash = require('connect-flash');
+const trade = require('../models/trade');
 
 exports.new = (req, res)=>{
     res.render('./user/new');
@@ -11,8 +12,12 @@ exports.login = (req, res)=>{
 
 exports.profile = (req, res, next)=>{
     let id = req.session.user;
-    model.findById(id)
-    .then(user => res.render('./user/profile' , {user: user}))
+    Promise.all([model.findById(id), trade.find({'createdBy':id})])
+    .then(results =>{
+        const [user, trades] = results;
+        res.render('./user/profile' , {user: user, trades:trades})
+
+    })
     .catch(err => next(err));
 };
 

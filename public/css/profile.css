@@ -1,0 +1,30 @@
+table {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+.head{
+    padding: 10px;
+}
+
+.table-main{
+    padding: 10px;
+}
+
+.table-btn {
+    background-color: seashell;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: brown;
+    padding: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
