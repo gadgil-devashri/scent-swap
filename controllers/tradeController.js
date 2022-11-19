@@ -27,11 +27,6 @@ exports.new = function(req,res){
 
 exports.show = function(req,res,next){
     let id = req.params.id;
-    if(!id.match(/^[0-9a-fA-F]{24}$/)){
-        let err = new Error("Invalid trade ID");
-        err.status = 400;
-        return next(err);
-    }
     model.findById(id).populate('createdBy', 'firstName lastName')
     .then(trade => {
         if(trade){
@@ -65,11 +60,6 @@ exports.create = function(req,res,next){
 
 exports.delete = function(req,res,next){
     let id = req.params.id;
-    if(!id.match(/^[0-9a-fA-F]{24}$/)){
-        let err = new Error("Invalid trade ID");
-        err.status = 400;
-        return next(err);
-    }
     model.findByIdAndDelete(id)
     .then(trade => {
         if(trade){
@@ -90,11 +80,6 @@ exports.update = function(req,res,next){
     let trade = req.body;
     let id = req.params.id;
     trade.status = 'available';
-    if(!id.match(/^[0-9a-fA-F]{24}$/)){
-        let err = new Error("Invalid trade ID");
-        err.status = 400;
-        return next(err);
-    }
     model.findByIdAndUpdate(id, trade, { useFindAndModify: false, runValidators: true})
     .then(trade => {
         if(trade){
@@ -119,11 +104,6 @@ exports.update = function(req,res,next){
 exports.edit = function(req,res,next){
      // res.send("trade updation form with id: " +req.params.id);
     let id = req.params.id;
-    if(!id.match(/^[0-9a-fA-F]{24}$/)){
-        let err = new Error("Invalid trade ID");
-        err.status = 400;
-        return next(err);
-    }
     model.findById(id)
     .then(trade => {
         if(trade){
