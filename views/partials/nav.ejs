@@ -32,6 +32,9 @@
         <nav class="secondary-nav">
             <ul>
                 <li><a href="/trades">Trades</a></li>
+                <%if(username){%>
+                    <li class="username">Welcome <%=username%>!</li>
+                <%}%>
             </ul>
         </nav>
         <% if(errorMessages.length > 0){

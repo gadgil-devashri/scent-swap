@@ -113,3 +113,8 @@ article {
     text-align: center;
     padding: 10px 10px;
   }
+
+  .username {
+    float:right;
+    color: darkred;
+  }

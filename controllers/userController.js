@@ -55,6 +55,7 @@ exports.verify = (req, res, next) => {
                 if(result){
                     req.flash('success', 'You have successfully logged in');
                     req.session.user = user._id;
+                    req.session.username = user.firstName;
                     res.redirect('/users/profile');
                 }
                 else{
