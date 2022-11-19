@@ -15,20 +15,47 @@
             <div class="block">
                 <h2><%=trade.title%></h2>
                 <h4><%=trade.category%></h4>
-                <p class="p-head"> Description:</p>
-                <p><%=trade.details%></p>
-                <p class="p-head">Company:</p>
-                <p><%=trade.company%></p>
-                <p class="p-head">Type:</p>
-                <p><%=trade.type%></p>
-                <p class="p-head">Original Net Weight:</p>
-                <p><%=trade.original_net_weight%>Oz</p>
-                <p class="p-head">Existing Net Weight:</p>
-                <p><%=trade.existing_net_weight%>Oz</p>
-                <p class="p-head">Original Price:</p>
-                <p>$<%=trade.original_price%></p>
-                <p class="p-head">Status:</p>
-                <p><%=trade.status%></p>
+
+                <div class="section">
+                    <span class="p-head">Description:</span>
+                    <p><%=trade.details%></p>
+                </div>
+
+                <div class="section">
+                    <span class="p-head">Company:</span>
+                    <span><%=trade.company%></span>
+                </div>
+                
+                <div class="section">
+                    <span class="p-head">Type:</span>
+                    <span><%=trade.type%></span>
+                </div>
+
+                <div class="section">
+                    <span class="p-head">Original Net Weight:</span>
+                    <span><%=trade.original_net_weight%> Oz</span>
+                </div>
+
+                <div class="section">
+                    <span class="p-head">Existing Net Weight:</span>
+                    <span><%=trade.existing_net_weight%> Oz</span>
+                </div>
+
+                <div class="section">
+                    <span class="p-head">Original Price:</span>
+                    <span>$<%=trade.original_price%></span>
+                </div>
+
+                <div class="section">
+                    <span class="p-head">Status:</span>
+                    <span><%=trade.status%></span>
+                </div>
+
+                <div class="section">
+                    <span class="p-head">Created by:</span>
+                    <span><%=trade.createdBy.firstName + " " +trade.createdBy.lastName%></span>
+                </div>
+                
             </div>
         <%} else{%>
             <p>No details found</p>

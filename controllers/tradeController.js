@@ -32,7 +32,7 @@ exports.show = function(req,res,next){
         err.status = 400;
         return next(err);
     }
-    model.findById(id)
+    model.findById(id).populate('createdBy', 'firstName lastName')
     .then(trade => {
         if(trade){
             res.render('trade/trade', {trade:trade});
@@ -49,6 +49,7 @@ exports.show = function(req,res,next){
 
 exports.create = function(req,res,next){
     let trade = new model(req.body);
+    trade.createdBy = req.session.user;
     trade.save()
     .then(trade => {
         trade.status = 'available';

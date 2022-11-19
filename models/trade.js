@@ -12,7 +12,8 @@ const tradeSchema = new Schema({
     status: {type: String, default:'available'},
     image: {type: String, required: [true, 'image is required']},
     details: {type: String, required: [true, 'Details field is required'],
-              minlength:[10, 'Details field should have atleast 10 characters']}
+              minlength:[10, 'Details field should have atleast 10 characters']},
+    createdBy: {type: Schema.Types.ObjectId, ref:'User'},
 },
 {
     timestamps:true
