@@ -81,7 +81,7 @@ exports.logout = (req, res, next) =>{
             return next(err)
         }
         else{
-            res.redirect('/users/login')
+            res.redirect('/')
         }
     });
 
