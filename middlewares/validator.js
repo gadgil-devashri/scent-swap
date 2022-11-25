@@ -5,8 +5,10 @@ exports.validateId = (req,res,next)=>{
        return next();
     }
     else{
-        let err = new Error('Invalid trade id');
-        err.status = 400;
-        return next(err);
+        req.flash('error', 'Invalid trade id')
+        //let err = new Error('Invalid trade id');
+        // err.status = 400;
+        // return next(err);
+        return res.redirect('back');
     }
 }
