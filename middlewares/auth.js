@@ -35,9 +35,12 @@ exports.isOwner = (req,res,next)=>{
                 return next();
             }
             else{
-                err = new Error('Unauthorized to perform this action');
-                err.status = 401;
-                next(err);
+                //err = new Error('Unauthorized to perform this action');
+                //err.status = 401;
+                //next(err);
+                req.flash('error', 'Unauthorized to perform this action');
+                return res.redirect('back');
+
             }
         }
     })

@@ -48,6 +48,7 @@ exports.create = function(req,res,next){
     trade.save()
     .then(trade => {
         trade.status = 'available';
+        req.flash('success', 'Trade item created successfully');
         res.redirect('/trades');
     })
     .catch(err => {
@@ -55,7 +56,9 @@ exports.create = function(req,res,next){
             req.flash('error', err.message);
             return res.redirect('back');
         }
-        next(err)
+        req.flash('error', 'Trade item can not be created. Please try again later');
+        return res.redirect('back');
+        //next(err)
     })
 }
 
@@ -84,6 +87,7 @@ exports.update = function(req,res,next){
     model.findByIdAndUpdate(id, trade, { useFindAndModify: false, runValidators: true})
     .then(trade => {
         if(trade){
+            req.flash('success', 'Trade item updated successfully');
             res.redirect('/trades/'+id);
         }
         else{
@@ -99,7 +103,9 @@ exports.update = function(req,res,next){
             req.flash('error', err.message);
             return res.redirect('back');
         }
-        next(err);
+        req.flash('error', 'Trade item can not be updated. Please try again later');
+        return res.redirect('back');
+        //next(err);
     })
 }
 
