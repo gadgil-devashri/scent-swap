@@ -1,4 +1,5 @@
 const model = require('../models/trade');
+const watchlist = require('../models/watchlist');
 
 exports.index = function(req,res,next){
     model.find()
@@ -30,7 +31,16 @@ exports.show = function(req,res,next){
     model.findById(id).populate('createdBy', 'firstName lastName')
     .then(trade => {
         if(trade){
-            res.render('trade/trade', {trade:trade});
+            watchlistId = null;
+            watchlist.findOne({'tradeId': trade._id, 'userId':req.session.user})
+            .then(watchlistItem => {
+                if(watchlistItem){
+                    watchlistId = watchlistItem._id;
+                }
+                res.render('trade/trade', {trade:trade, watchlistId:watchlistId});
+            })
+            .catch(err => next(err))
+            
         }
         else{
             //res.status(404).send("Can not find trade with id", req.params.id);

@@ -12,6 +12,19 @@
                         <button class="buttonOp" type="submit" formmethod="POST" formaction="/trades/<%=trade.id%>?_method=DELETE">Delete</button>
                     </form>
 
+                <%}
+                else {%>
+                    <form class="form-btn">
+                        <button class="buttonOp" type="submit" formmethod="GET" formaction="">Trade</button>
+                        <!-- <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=trade.id%>/">Watch</button> -->
+                        <%if(watchlistId){%>
+                            <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=watchlistId%>?_method=DELETE">Unwatch</button>
+                        <%}
+                        else{%>
+                            <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=trade.id%>/">Watch</button>
+                        <%}%>
+                    </form>
+
                 <%}%>
             </div>
             <div class="block">

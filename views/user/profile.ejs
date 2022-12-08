@@ -31,7 +31,40 @@
         <%} else {%>
             <p>You have not created any trades to display</p>
         <%}%>
-
     </div>
+
+    <div class="head">
+        <h3><%=user.firstName%>'s watchlist:</h3>
+    </div>
+
+    <div class="table-main">
+
+        <%if(watchlistItems.length) { %>
+            <table>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+            <%watchlistItems.forEach(item => {%>
+                <tr>
+                    <td> <a href="/trades/<%=item.tradeId._id%>"><p><%=item.tradeId.title%></p></a></td>
+                    <td><%=item.tradeId.category%></td>
+                    <td><%=item.tradeId.status%></td>
+                    <td>
+                        <form class="form-btn">
+                            <button class="table-btn" type="submit" formmethod="POST" formaction="/watchlists/<%=item._id%>?_method=DELETE">Unwatch</button>
+                        </form>
+                    </td>
+                </tr>
+            <%});%>
+            </table>
+        <%} else {%>
+            <p>There are no items in your watchlist</p>
+        <%}%>
+    
+    </div>
+    
 </main>
 <%- include('../partials/footer.ejs')%>

@@ -9,6 +9,7 @@ const userRoutes = require('./routes/userRoutes');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
+const watchlistRoutes = require('./routes/watchlistRoutes');
 
 
 // App creation
@@ -61,6 +62,7 @@ app.use((req, res, next) => {
 app.use('/', mainRoute);
 app.use('/trades', tradeRoute);
 app.use('/users', userRoutes);
+app.use('/watchlists', watchlistRoutes);
 
 app.use((req,res,next)=>{
     let err = new Error('The server can not locate: '+req.url);
