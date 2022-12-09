@@ -15,8 +15,7 @@
                 <%}
                 else {%>
                     <form class="form-btn">
-                        <button class="buttonOp" type="submit" formmethod="GET" formaction="">Trade</button>
-                        <!-- <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=trade.id%>/">Watch</button> -->
+                        <button class="buttonOp" type="submit" formmethod="GET" formaction="/offers/<%=trade._id%>/<%=trade.createdBy._id%>">Trade</button>
                         <%if(watchlistId){%>
                             <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=watchlistId%>?_method=DELETE">Unwatch</button>
                         <%}

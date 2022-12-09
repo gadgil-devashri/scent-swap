@@ -13,12 +13,14 @@
                 <tr>
                   <th>Trades</th>
                   <th>Category</th>
+                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
             <%trades.forEach(trade => {%>
                 <tr>
                     <td> <a href="/trades/<%=trade.id%>"><p><%=trade.title%></p></a></td>
                     <td><%=trade.category%></td>
+                    <td><%=trade.status%></td>
                     <td>
                         <form class="form-btn">
                             <button class="table-btn" type="submit" formmethod="GET" formaction="/trades/<%=trade.id%>/edit">Edit</button>
@@ -62,6 +64,39 @@
             </table>
         <%} else {%>
             <p>There are no items in your watchlist</p>
+        <%}%>
+    
+    </div>
+
+    <div class="head">
+        <h3>Offers made by <%=user.firstName%></h3>
+    </div>
+
+    <div class="table-main">
+
+        <%if(offers.length) { %>
+            <table>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+            <%offers.forEach(item => {%>
+                <tr>
+                    <td> <a href="/trades/<%=item.ownerItem._id%>"><p><%=item.ownerItem.title%></p></a></td>
+                    <td><%=item.ownerItem.category%></td>
+                    <td><%=item.ownerItem.status%></td>
+                    <td>
+                        <form class="form-btn">
+                            <button class="table-btn" type="submit" formmethod="POST" formaction="/offers/<%=item._id%>?_method=DELETE">Cancel offer</button>
+                        </form>
+                    </td>
+                </tr>
+            <%});%>
+            </table>
+        <%} else {%>
+            <p>There are no offers made</p>
         <%}%>
     
     </div>

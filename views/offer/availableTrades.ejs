@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/css/profile.css">
+<%- include('../partials/nav.ejs')%> 
+        <main class="content">
+            <div class="head">
+                <h3>Select trade item for exchange:</h3>
+            </div>
+            <form action="/offers" method = 'POST'>
+                <input type="hidden" id="ownerItem" name="ownerItem" value= <%= ownerItem %>>
+                <input type="hidden" id="owner" name="owner" value= <%=owner %> >
+                <input type="hidden" id="trader" name="trader" value=<%=user %> >
+
+                <div class="table-main">
+                    <%if(trades.length) { %>
+                        <table>
+                            <tr>
+                              <th>Selection</th>
+                              <th>Trades</th>
+                              <th>Category</th>
+                              <th>Status</th>
+                            </tr>
+                        <%trades.forEach(trade => {%>
+                            <tr>
+                                <td><input type="radio" id="tradeItem" name="tradeItem" value=<%=trade._id %> required></td>
+                                <td> <a href="/trades/<%=trade.id%>"><p><%=trade.title%></p></a></td>
+                                <td><%=trade.category%></td>
+                                <td><%=trade.status%></td>
+                            </tr>
+                        <%});%>
+                        </table>
+                    <%} else {%>
+                        <p>You do not have any items available for trading</p>
+                    <%}%>
+                </div>
+                <div>
+                    <input type="submit" class="table-btn" value="Confirm Trade">
+               </div>
+
+            </form>
+        </main>
+<%- include('../partials/footer.ejs')%>
