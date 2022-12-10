@@ -43,6 +43,11 @@ exports.isOwner = (req,res,next)=>{
 
             }
         }
+        else{
+           let err = new Error("Can not find trade with id "+req.params.id);
+           err.status=404;
+           next(err);
+        }
     })
     .catch(err => next(err))
    
