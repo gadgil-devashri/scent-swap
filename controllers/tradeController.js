@@ -81,25 +81,34 @@ exports.delete = function(req,res,next){
             watchlist.deleteMany({tradeId:id})
             .then(items =>{
                 offer.findOneAndDelete({$or: [{ownerItem: id}, {tradeItem: id}]})
-                .then(offer => {
+                .then(offer => 
+                {
                     item = null
-                    if(offer.ownerItem == id){
-                        // update tradeItem status
-                        item = offer.tradeItem
-                        
-                    }
-                    else{
-                        // update owneritem status
-                        item = offer.ownerItem
-                    }
-                    model.findByIdAndUpdate(item, {status:'available'}, {useFindAndModify: false, runValidators: true})
-                    .then(item =>{
+                    if(offer)
+                    {
+                        if(offer.ownerItem == id){
+                            // update tradeItem status
+                            item = offer.tradeItem
+                            
+                        }
+                        else{
+                            // update owneritem status
+                            item = offer.ownerItem
+                        }
+
+                        model.findByIdAndUpdate(item, {status:'available'}, {useFindAndModify: false, runValidators: true})
+                        .then(item =>{
+                            req.flash('success', 'Trade item deleted successfully. If there are any associated offers/ watchlist entries then they are eliminated')
+                            res.redirect('/trades');
+                        })
+                        .catch(err =>next(err))
+
+                    } else{
                         req.flash('success', 'Trade item deleted successfully')
                         res.redirect('/trades');
-                    })
-                    .catch(err =>next(err))
-                }
-                )
+                    }
+                   
+                })
                 .catch(err => next(err))
 
             })
