@@ -1,0 +1,27 @@
+.head{
+    padding: 10px;
+}
+
+.offer-main {
+    display: flex;
+}
+
+.flex-item {
+    padding: 20px;
+}
+
+.btn {
+    background-color: seashell;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: brown;
+    padding: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}

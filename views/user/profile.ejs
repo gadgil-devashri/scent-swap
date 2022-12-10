@@ -22,10 +22,17 @@
                     <td><%=trade.category%></td>
                     <td><%=trade.status%></td>
                     <td>
-                        <form class="form-btn">
-                            <button class="table-btn" type="submit" formmethod="GET" formaction="/trades/<%=trade.id%>/edit">Edit</button>
-                            <button class="table-btn" type="submit" formmethod="POST" formaction="/trades/<%=trade.id%>?_method=DELETE">Delete</button>
-                        </form>
+                        <%if(trade.status != 'traded'){%>
+
+                            <form class="form-btn">
+                                <button class="table-btn" type="submit" formmethod="GET" formaction="/trades/<%=trade.id%>/edit">Edit</button>
+                                <button class="table-btn" type="submit" formmethod="POST" formaction="/trades/<%=trade.id%>?_method=DELETE">Delete</button>
+                                <%if(trade.status === 'pending'){%>
+                                    <button class="table-btn" type="submit" formmethod="GET" formaction="/offers/manage/<%=trade.id%>">Manage offer</button>
+                                <%}%>
+                            </form>
+
+                        <%}%>
                     </td>
                 </tr>
             <%});%>

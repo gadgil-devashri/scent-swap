@@ -40,3 +40,14 @@
 .section{
     padding: 10px;
 }
+
+.buttonOp-disabled {
+    display: inline-block;
+    margin: 0% 5%;
+    padding: 10px 24px;
+    background-color: lightgray;
+    color: black; 
+    border: 2px solid brown;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+  }

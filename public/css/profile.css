@@ -1,3 +1,7 @@
+.content {
+  overflow-y:auto;
+}
+
 table {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-collapse: collapse;

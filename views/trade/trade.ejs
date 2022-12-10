@@ -6,25 +6,34 @@
             <div class="block">
                 <% if(trade){ %>
                 <img class="product-img" src="<%=trade.image%>" alt="product image" width="400" height="400">
-                <%if(user == trade.createdBy._id){%>
-                    <form class="form-btn">
-                        <button class="buttonOp" type="submit" formmethod="GET" formaction="/trades/<%=trade.id%>/edit">Edit</button>
-                        <button class="buttonOp" type="submit" formmethod="POST" formaction="/trades/<%=trade.id%>?_method=DELETE">Delete</button>
-                    </form>
+                <% if(trade.status != 'traded'){
 
-                <%}
-                else {%>
-                    <form class="form-btn">
-                        <button class="buttonOp" type="submit" formmethod="GET" formaction="/offers/<%=trade._id%>/<%=trade.createdBy._id%>">Trade</button>
-                        <%if(watchlistId){%>
-                            <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=watchlistId%>?_method=DELETE">Unwatch</button>
-                        <%}
-                        else{%>
-                            <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=trade.id%>/">Watch</button>
-                        <%}%>
-                    </form>
+                    if(user == trade.createdBy._id){%>
+                        <form class="form-btn">
+                            <button class="buttonOp" type="submit" formmethod="GET" formaction="/trades/<%=trade.id%>/edit">Edit</button>
+                            <button class="buttonOp" type="submit" formmethod="POST" formaction="/trades/<%=trade.id%>?_method=DELETE">Delete</button>
+                        </form>
+    
+                    <%}
+                    else {%>
+                        <form class="form-btn">
+                            <%if(trade.status != 'pending'){%>
+                                <button class="buttonOp" type="submit" formmethod="GET" formaction="/offers/available/<%=trade._id%>/<%=trade.createdBy._id%>">Trade</button>
+                            <%}
+                            else{%>
+                                <button class="buttonOp-disabled" type="submit" disabled formmethod="GET" formaction="/offers/available/<%=trade._id%>/<%=trade.createdBy._id%>">Trade</button>
+                            <%}
+                            if(watchlistId){%>
+                                <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=watchlistId%>?_method=DELETE">Unwatch</button>
+                            <%}
+                            else{%>
+                                <button class="buttonOp" type="submit" formmethod="POST" formaction="/watchlists/<%=trade.id%>/">Watch</button>
+                            <%}%>
+                        </form>
+    
+                    <%}
 
-                <%}%>
+                }%>
             </div>
             <div class="block">
                 <h2><%=trade.title%></h2>

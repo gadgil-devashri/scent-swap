@@ -1,5 +1,6 @@
 const model = require('../models/trade');
 const watchlist = require('../models/watchlist');
+const offer = require('../models/offer');
 
 exports.index = function(req,res,next){
     model.find()
@@ -77,7 +78,32 @@ exports.delete = function(req,res,next){
     model.findByIdAndDelete(id)
     .then(trade => {
         if(trade){
-            res.redirect('/trades');
+            watchlist.deleteMany({tradeId:id})
+            .then(items =>{
+                offer.findOneAndDelete({$or: [{ownerItem: id}, {tradeItem: id}]})
+                .then(offer => {
+                    item = null
+                    if(offer.ownerItem == id){
+                        // update tradeItem status
+                        item = offer.tradeItem
+                        
+                    }
+                    else{
+                        // update owneritem status
+                        item = offer.ownerItem
+                    }
+                    model.findByIdAndUpdate(item, {status:'available'}, {useFindAndModify: false, runValidators: true})
+                    .then(item =>{
+                        req.flash('success', 'Trade item deleted successfully')
+                        res.redirect('/trades');
+                    })
+                    .catch(err =>next(err))
+                }
+                )
+                .catch(err => next(err))
+
+            })
+            .catch(err => next(err))
         }
         else{
             //res.status(404).send("Can not find trade with id", id);

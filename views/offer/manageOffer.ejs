@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/css/manageOffer.css">
+<%- include('../partials/nav.ejs')%> 
+        <main class="content">
+            <div class="head">
+                <h3>Manage Offer:</h3>
+            </div>
+            <%if(offer){%>
+                <div class="offer-main">
+
+                    <div class="flex-item">
+                        <img src=<%=offer.ownerItem.image %> alt="Owner Item" width="300" height="400">
+                        <p>Title: <%=offer.ownerItem.title%></p>
+                        <p>Category: <%=offer.ownerItem.category%></p>
+                        <p>Status: <%=offer.ownerItem.status%></p>
+                    </div>
+    
+                    <div  class="flex-item">
+                        <img src=<%=offer.tradeItem.image %> alt="trade Item" width="300" height="400">
+                        <p>Title: <%=offer.tradeItem.title%></p>
+                        <p>Category: <%=offer.tradeItem.category%></p>
+                        <p>Status: <%=offer.tradeItem.status%></p>
+                    </div>
+                    <div class="btn-div">
+                        <form class="form-btn">
+                            <%if(isOfferResponder){%>
+                                <button class="btn" type="submit" formmethod="POST" formaction="/offers/accept/<%=offer._id%>?_method=DELETE">Accept</button>
+                                <button class="btn" type="submit" formmethod="POST" formaction="/offers/<%=offer._id%>?_method=DELETE">Reject</button>
+                            <%}
+                            else{%>
+                                <button class="btn" type="submit" formmethod="POST" formaction="/offers/<%=offer._id%>?_method=DELETE">Cancel offer</button>
+
+                            <%}%>
+                        </form>
+                    </div>
+
+                </div>
+            <%}%>
+        </main>
+<%- include('../partials/footer.ejs')%>
