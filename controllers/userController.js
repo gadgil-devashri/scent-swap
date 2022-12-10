@@ -26,6 +26,9 @@ exports.profile = (req, res, next)=>{
 
 exports.create = (req, res, next)=>{
     let user = new model(req.body);
+    if(user.email){
+        user.email = user.email.toLowerCase();
+    }
     user.save()//insert the document to the database
     .then(user=> {
         req.flash('success', 'You have signed up successfully.')
@@ -48,6 +51,9 @@ exports.create = (req, res, next)=>{
 exports.verify = (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
+    if(email){
+        email = email.toLowerCase();
+    }
 
     model.findOne({email: email})
     .then(user =>{

@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/tradeController');
 const {isLoggedIn, isOwner} = require('../middlewares/auth');
-const {validateId} = require('../middlewares/validator');
+const {validateId, validateResults, validateTrade} = require('../middlewares/validator');
+
 
 
 // GET ALL TRADES
@@ -15,13 +16,13 @@ router.get('/new',isLoggedIn, controller.new)
 router.get('/:id',validateId, controller.show);
 
 // POST new trade details
-router.post('/',isLoggedIn, controller.create);
+router.post('/',isLoggedIn,validateTrade, validateResults, controller.create);
 
 // DELETE a trade
 router.delete('/:id',validateId, isLoggedIn,isOwner, controller.delete);
 
 // Update existing trade
-router.put('/:id',validateId, isLoggedIn,isOwner, controller.update);
+router.put('/:id',validateId, isLoggedIn,isOwner,validateTrade, validateResults, controller.update);
 
 // Edit an existing trade
 router.get('/:id/edit',validateId, isLoggedIn,isOwner, controller.edit)
